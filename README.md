@@ -1,3 +1,29 @@
-# Smarting-Selling-RL
-這是一個以強化學習方法設計賣股時間點的專案
-股票市場有一句名言「會買的是徒弟，會賣的才是師父」，賣股的時機一直是 讓投資人頭痛的問題。為了解決這個難題，我們以量化的角度將其包裝成馬可夫決策過程（Markov Decision Process, MDP），透過各種的強化學習方法(Reinforcement Learning policy)： SARSA、Q-learning、SARSA( λ )設計出賣股策略，目標是提升投資績 效。任務設計如下：投資人要在未來100天內最好的時間點將手上的一支股票賣出，賣股賺的錢能夠存銀行賺利息，希望能夠獲得最大報酬。結果顯示，與一般以及技術分析方法比較，在中位數、Q1報酬以及報酬排名上大幅領先，表示RL能夠穩定的賺取報酬 
+# 📈 SmartSellingRL：基於強化學習的量化交易智慧賣出系統
+
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red.svg)
+![Reinforcement Learning](https://img.shields.io/badge/Machine%20Learning-RL-orange.svg)
+
+## 📖 專案簡介
+本專案旨在解決量化交易中「會買不會賣」的痛點。有別於傳統的技術指標（如 MA、KD、RSI），本系統建構了自訂的強化學習環境，運用 **Q-Learning**、**SARSA** 與 **SARSA(λ)** 等演算法，讓 AI 代理人透過與歷史股價軌跡互動，動態尋找最佳的獲利了結時機點，並與傳統的 Buy & Hold 策略進行績效對比。
+
+## ✨ 核心技術與亮點
+為了符合業界軟體工程標準，本專案不僅止於研究用腳本，更具備以下工程化特色：
+* **模組化與 OOP 設計**：將演算法、環境與技術指標封裝成獨立模組（`core/`, `utils/`），提高程式碼復用性與可維護性。
+* **平行運算加速**：使用 `joblib` 進行多核心平行回測，大幅縮短動輒上萬回合的 RL 訓練與評估時間。
+* **互動式數據儀表板**：結合 **Streamlit** 開發 Web App，讓使用者能透過 UI 介面即時調整學習率（Alpha）、折扣因子（Gamma）等超參數，並視覺化績效比較圖表。
+
+## 📂 專案架構
+```text
+SmartSellingRL/
+├── app.py                 # Streamlit 互動式 Web App 進入點
+├── main.py                # 終端機大批量平行回測主程式
+├── core/                  # 核心業務邏輯
+│   ├── agent.py           # RL 演算法 (Q-learning, SARSA)
+│   ├── environment.py     # RL 交易環境與狀態編碼
+│   ├── backtest_engine.py # 績效評估與回測邏輯
+│   └── pipeline.py        # 整合訓練與回測的流程控制
+├── utils/                 # 輔助工具
+│   ├── indicators.py      # 技術指標計算 (MA, KD, RSI, MACD)
+│   └── psp2.py            # 模擬價格生成器 (fbm 等)
+└── README.md              # 專案說明文件
