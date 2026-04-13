@@ -13,6 +13,8 @@
 * **平行運算加速**：使用 `joblib` 進行多核心平行回測，大幅縮短動輒上萬回合的 RL 訓練與評估時間。
 * **互動式數據儀表板**：結合 **Streamlit** 開發 Web App，讓使用者能透過 UI 介面即時調整學習率（Alpha）、折扣因子（Gamma）等超參數，並視覺化績效比較圖表。
 <img width="1682" height="803" alt="rl_selling1" src="https://github.com/user-attachments/assets/d1b9a388-cc56-4986-b31e-c3419108768e" />
+<img width="1585" height="917" alt="rl_selling2" src="https://github.com/user-attachments/assets/8f864f90-3a15-4df8-904c-f10a57e5d547" />
+
 
 ## 📂 專案架構
 ```text
