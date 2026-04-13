@@ -27,3 +27,5 @@ SmartSellingRL/
 │   ├── indicators.py      # 技術指標計算 (MA, KD, RSI, MACD)
 │   └── psp2.py            # 模擬價格生成器 (fbm 等)
 └── README.md              # 專案說明文件
+
+<img width="1682" height="803" alt="rl_selling1" src="https://github.com/user-attachments/assets/d1b9a388-cc56-4986-b31e-c3419108768e" />
